@@ -1,10 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  ArrowLeft,
-  ArrowRight,
-  Sparkles,
-  X,
-} from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import ChromaKeyVideo from '../common/ChromaKeyVideo';
 import { CHARACTERS } from '../../data/characters';
 
@@ -19,7 +14,6 @@ interface Props {
 
 export default function NotFoundPage({ onGoHome }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [menuOpen, setMenuOpen]       = useState(false);
   const [scaleY, setScaleY]           = useState(1);
   const [isLoading, setIsLoading]     = useState(true);
   const [loaded, setLoaded]           = useState<Record<string, boolean>>(() =>
@@ -127,13 +121,6 @@ export default function NotFoundPage({ onGoHome }: Props) {
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
   }, []);
-
-  // ─── Body scroll lock while drawer is open ────────────────────────────────
-
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [menuOpen]);
 
   // ─── Home navigation ──────────────────────────────────────────────────────
 
@@ -320,71 +307,6 @@ export default function NotFoundPage({ onGoHome }: Props) {
           })}
         </div>
       </header>
-
-      {/* ── Mobile slide-in drawer ────────────────────────────────────────── */}
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-hidden={!menuOpen}
-        className={`fixed inset-0 z-50 ${menuOpen ? '' : 'pointer-events-none'}`}
-      >
-        {/* Backdrop */}
-        <div
-          onClick={() => setMenuOpen(false)}
-          className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${menuOpen ? 'opacity-100' : 'opacity-0'}`}
-        />
-
-        {/* Drawer panel */}
-        <div
-          className={`absolute right-0 top-0 h-full w-full transform transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] sm:w-[380px] ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
-          style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E3A8A 100%)' }}
-        >
-          <div className="flex items-center justify-between px-6 py-5">
-            <button onClick={goHome} className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-xs font-bold text-[#1E3A8A]">
-                3D
-              </span>
-              <span className="text-lg font-bold text-white">AJESUS CREATOR</span>
-            </button>
-            <button
-              onClick={() => setMenuOpen(false)}
-              aria-label="Close menu"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white hover:bg-white/30"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-
-          <nav className="mt-4 flex flex-col gap-2 px-6">
-            {CHARACTERS.map((char, i) => {
-              const Icon = char.icon;
-              return (
-                <button
-                  key={char.id}
-                  onClick={() => { setActiveIndex(i); setMenuOpen(false); }}
-                  className={`flex items-center gap-3 rounded-2xl bg-white/10 px-6 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/20 ${menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}
-                  style={{ transitionDelay: menuOpen ? `${150 + i * 60}ms` : '0ms' }}
-                >
-                  <Icon className="h-5 w-5 text-amber-300" />
-                  {char.name}
-                </button>
-              );
-            })}
-          </nav>
-
-          <div className="absolute bottom-0 left-0 right-0 p-6">
-            <a
-              href="/"
-              onClick={goHome}
-              className={`flex w-full items-center justify-center gap-2 rounded-full bg-white py-4 text-base font-semibold text-[#1E3A8A] transition-all duration-300 hover:scale-[1.02] ${menuOpen ? 'opacity-100' : 'opacity-0'}`}
-              style={{ transitionDelay: menuOpen ? '450ms' : '0ms' }}
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Return to Home
-            </a>
-          </div>
-        </div>
-      </div>
 
       {/* ── Character carousel ────────────────────────────────────────────── */}
       <div
