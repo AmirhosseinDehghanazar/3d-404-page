@@ -1,17 +1,6 @@
 <div align="center">
 
-<br />
 
-```
-  █████╗      ██╗███████╗███████╗██╗   ██╗███████╗
- ██╔══██╗     ██║██╔════╝██╔════╝██║   ██║██╔════╝
- ███████║     ██║█████╗  ███████╗██║   ██║███████╗
- ██╔══██║██   ██║██╔══╝  ╚════██║██║   ██║╚════██║
- ██║  ██║╚█████╔╝███████╗███████║╚██████╔╝███████║
- ╚═╝  ╚═╝ ╚════╝ ╚══════╝╚══════╝ ╚═════╝ ╚══════╝
-```
-
-<br />
 
 <p>
   <a href="https://AmirhosseinDehghanazar.github.io/3d-404-page/"><img src="https://img.shields.io/badge/LIVE_DEMO-click_here-brightgreen?style=flat-square&logo=githubpages&logoColor=white" alt="Live Demo" /></a>
