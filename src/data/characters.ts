@@ -14,12 +14,14 @@ export interface Character {
   iconColor: string;
 }
 
+const base = import.meta.env.BASE_URL ?? './';
+
 export const CHARACTERS: Character[] = [
   {
     id: 'shark',
     name: 'Shark 3D',
     description: 'Digital nomad shark in a classic navy hoodie, denim sweatpants & blue sneakers.',
-    src: '/shark.mp4',
+    src: `${base}shark.mp4`.replace('//', '/'),
     bgGradient: 'linear-gradient(135deg, #F8F4EE 0%, #EBE3D5 50%, #DDD1BF 100%)',
     watermarkTextColor: 'text-[#1E3A8A]/[0.07]',
     icon: Fish,
@@ -29,7 +31,7 @@ export const CHARACTERS: Character[] = [
     id: 'cactus',
     name: 'Cactus 3D',
     description: 'Cactus programmer with a sunflower crown, mustard hoodie & cargo shorts.',
-    src: '/cactus.mp4',
+    src: `${base}cactus.mp4`.replace('//', '/'),
     bgGradient: 'linear-gradient(135deg, #F9F6EE 0%, #ECE4D0 50%, #DBCBB2 100%)',
     watermarkTextColor: 'text-[#15803D]/[0.07]',
     icon: Flower2,
@@ -39,7 +41,7 @@ export const CHARACTERS: Character[] = [
     id: 'racoon',
     name: 'Raccoon 3D',
     description: 'Pro gamer raccoon in a black snapback & hoodie with a glowing PS controller.',
-    src: '/racoon.mp4',
+    src: `${base}racoon.mp4`.replace('//', '/'),
     bgGradient: 'linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 50%, #CBD5E1 100%)',
     watermarkTextColor: 'text-[#0F172A]/[0.07]',
     icon: Gamepad2,
@@ -49,7 +51,7 @@ export const CHARACTERS: Character[] = [
     id: 'ducky',
     name: 'Ducky 3D',
     description: 'Duckling in sunglasses, a blue daisy Hawaiian shirt & bright orange sneakers.',
-    src: '/ducky.mp4',
+    src: `${base}ducky.mp4`.replace('//', '/'),
     bgGradient: 'linear-gradient(135deg, #FEF9C3 0%, #FDE68A 50%, #FCD34D 100%)',
     watermarkTextColor: 'text-[#CA8A04]/[0.09]',
     icon: Glasses,
