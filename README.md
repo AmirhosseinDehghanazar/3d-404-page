@@ -9,7 +9,6 @@
  ██╔══██║██   ██║██╔══╝  ╚════██║██║   ██║╚════██║
  ██║  ██║╚█████╔╝███████╗███████║╚██████╔╝███████║
  ╚═╝  ╚═╝ ╚════╝ ╚══════╝╚══════╝ ╚═════╝ ╚══════╝
-                                   3D · 404 · PAGE
 ```
 
 <br />
@@ -23,7 +22,6 @@
   <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT" />
   <img src="https://img.shields.io/badge/60_FPS-canvas_keying-orange?style=flat-square" alt="60FPS" />
 </p>
-
 
 <br />
 
@@ -49,12 +47,12 @@ The preloader holds for a minimum of three seconds, long enough for the editoria
 
 ## Characters
 
-| ID | Name | Series | Background theme |
-|---|---|---|---|
-| `shark` | Shark 3D | Ocean Nomad | Warm sand — `#F8F4EE → #DDD1BF` |
-| `cactus` | Cactus 3D | Botanical | Amber parchment — `#F9F6EE → #DBCBB2` |
-| `racoon` | Raccoon 3D | Gamer | Cool slate — `#F1F5F9 → #CBD5E1` |
-| `ducky` | Ducky 3D | Tropical | Sun yellow — `#FEF9C3 → #FCD34D` |
+| ID       | Name       | Series      | Background theme                      |
+| -------- | ---------- | ----------- | ------------------------------------- |
+| `shark`  | Shark 3D   | Ocean Nomad | Warm sand — `#F8F4EE → #DDD1BF`       |
+| `cactus` | Cactus 3D  | Botanical   | Amber parchment — `#F9F6EE → #DBCBB2` |
+| `racoon` | Raccoon 3D | Gamer       | Cool slate — `#F1F5F9 → #CBD5E1`      |
+| `ducky`  | Ducky 3D   | Tropical    | Sun yellow — `#FEF9C3 → #FCD34D`      |
 
 Each character has its own independently calibrated keying threshold. The values live in a typed lookup table inside [`ChromaKeyVideo.tsx`](src/components/common/ChromaKeyVideo.tsx) and are trivial to tune per-character.
 
@@ -99,12 +97,12 @@ If the network is slow and 8 seconds pass before all assets are ready, the fallb
 
 ## Navigation
 
-| Input | Action |
-|---|---|
-| Click a pill in the top bar | Switch character |
-| `←` / `→` arrow keys | Previous / next character |
-| Swipe left / right (touch) | Previous / next character |
-| Bottom arrow buttons | Previous / next character |
+| Input                       | Action                    |
+| --------------------------- | ------------------------- |
+| Click a pill in the top bar | Switch character          |
+| `←` / `→` arrow keys        | Previous / next character |
+| Swipe left / right (touch)  | Previous / next character |
+| Bottom arrow buttons        | Previous / next character |
 
 ---
 

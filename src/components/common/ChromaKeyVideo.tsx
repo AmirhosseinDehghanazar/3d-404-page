@@ -43,8 +43,11 @@ export default function ChromaKeyVideo({ src, keyColor, isActive, className }: P
     function tick() {
       raf = requestAnimationFrame(tick);
 
+      if (!ctx) return;
+
       // Suspend processing while this character is offscreen.
       if (!isActive) {
+
         if (!video!.paused) video!.pause();
         return;
       }

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Sparkles } from 'lucide-react';
 import ChromaKeyVideo from '../common/ChromaKeyVideo';
 import { CHARACTERS } from '../../data/characters';
 
@@ -17,12 +17,16 @@ export default function NotFoundPage({ onGoHome }: Props) {
   const [scaleY, setScaleY]           = useState(1);
   const [isLoading, setIsLoading]     = useState(true);
   const [loaded, setLoaded]           = useState<Record<string, boolean>>(() =>
-    Object.fromEntries(CHARACTERS.map((c) => [c.id, false]))
+    CHARACTERS.reduce<Record<string, boolean>>((acc, c) => {
+      acc[c.id] = false;
+      return acc;
+    }, {})
   );
 
   const watermarkRef  = useRef<HTMLDivElement>(null);
   const touchStartX   = useRef<number | null>(null);
-  const fallbackTimer = useRef<ReturnType<typeof setTimeout>>();
+  const fallbackTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
 
   const active = CHARACTERS[activeIndex];
 
