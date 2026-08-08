@@ -125,8 +125,8 @@ If the network is slow and 8 seconds pass before all assets are ready, the fallb
 **Requirements:** Node ≥ 18, npm ≥ 9
 
 ```bash
-git clone https://github.com/ajesus/ajesus-3d-404-page.git
-cd ajesus-3d-404-page
+git clone https://github.com/AmirhosseinDehghanazar/3d-404-page.git
+cd 3d-404-page
 npm install
 npm run dev          # http://localhost:5173
 ```
